@@ -3,7 +3,9 @@ import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.j
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
 import { v4 as uuidv4 } from 'uuid';
-import { addGameSession } from '../../session/game.session.js';
+import { addGameSession, getGameSession } from '../../session/game.session.js';
+
+const gameId = 1000000;
 
 const initialHandler = async ({ socket, userId, payload }) => {
   try {
@@ -15,8 +17,12 @@ const initialHandler = async ({ socket, userId, payload }) => {
 
     addUser(deviceId, socket);
     const user = getUserById(deviceId);
-    const gameSession = addGameSession(deviceId);
 
+    //찾아서 없으면 만들고 있으면 그냥 가져오기.
+    let gameSession = getGameSession(gameId);
+    if(!gameSession){
+      gameSession = addGameSession(gameId);
+    }
     gameSession.addUser(user);
 
     console.log("현재 접속중인 유저",getUser());
