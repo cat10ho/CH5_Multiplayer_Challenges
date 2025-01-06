@@ -1,4 +1,4 @@
-import { addUser, getUserById } from '../../session/user.session.js';
+import { addUser, getUser, getUserById } from '../../session/user.session.js';
 import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
@@ -18,6 +18,8 @@ const initialHandler = async ({ socket, userId, payload }) => {
     const gameSession = addGameSession(deviceId);
 
     gameSession.addUser(user);
+
+    console.log("현재 접속중인 유저",getUser());
 
     // 유저 정보 응답 생성
     const initialResponse = createResponse(

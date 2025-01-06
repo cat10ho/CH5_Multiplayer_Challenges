@@ -20,7 +20,7 @@ class Game {
     }
     this.users.push(user);
 
-    this.intervalManager.addPlayer(user.id, user.ping.bind(user), 1000); //핑을 쓸때 바인드 써야함. 마지막은 주기(ms)
+    this.intervalManager.addPlayer(user.id); //핑을 쓸때 바인드 써야함. 마지막은 주기(ms)
   }
 
   getUser(userId) {
@@ -36,15 +36,6 @@ class Game {
     }
   }
 
-  getMaxLatency() {
-    let maxLatency = 0;
-    this.users.forEach((user) => {
-      console.log(`${user.id}: ${user.latency}`);
-      maxLatency = Math.max(maxLatency, user.latency);
-    });
-    return maxLatency;
-  }
-
   startGame() {
     this.state = 'inProgress';
     const startPacket = gameStartNotification(this.id, Date.now());
@@ -55,11 +46,9 @@ class Game {
     });
   }
 
-  getAllLocation() {
-    const maxLatency = this.getMaxLatency();
-
+  getAllLocation() { //이건 위치 동기화 함수임.
     const locationData = this.users.map((user) => {
-      const { x, y } = user.calculatePosition(maxLatency);
+      const { x, y } = user.calculatePosition();
       return { id: user.id, x, y };
     });
     return createLocationPacket(locationData);

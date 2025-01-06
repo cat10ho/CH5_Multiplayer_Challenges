@@ -6,11 +6,11 @@ class IntervalManager extends BaseManager {
     this.intervals = new Map(); //맵은 중복이안되기에 유저마다 하나씩만 가질수 잇음.
   }
 
-  addPlayer(playerId, callback, interval, type = 'user') {//다른 타입 추가가 될수도 있음. 인터벌은 몇초바다~
+  addPlayer(playerId, type = 'user') {//다른 타입 추가가 될수도 있음. 인터벌은 몇초바다~
     if (!this.intervals.has(playerId)) {
       this.intervals.set(playerId, new Map());
     }
-    this.intervals.get(playerId).set(type, setInterval(callback, interval));
+    this.intervals.get(playerId).set(type);
   }
 
   addGame(gameId, callback, interval) {

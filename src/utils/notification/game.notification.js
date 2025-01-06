@@ -20,7 +20,7 @@ const makeNotification = (message, type) => {
 
 export const createLocationPacket = (users) => {//위치정보 
   const protoMessages = getProtoMessages();
-  const Location = protoMessages.gameNotification.LocationUpdate;
+  const Location = protoMessages.locationUpdate.LocationUpdate;
 
   const payload = { users };
   const message = Location.create(payload);
