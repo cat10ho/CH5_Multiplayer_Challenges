@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package game;
+package locationUpdatePayload;
 
 message LocationUpdatePayload {
   float x = 1;

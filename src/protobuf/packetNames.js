@@ -6,16 +6,13 @@ export const packetNames = {
   initial: {
     InitialPacket: 'initial.InitialPacket',
   },
-  game: {
-    CreateGamePayload: 'game.CreateGamePayload',
-    JoinGamePayload: 'game.JoinGamePayload',
-    LocationUpdatePayload: 'game.LocationUpdatePayload',
+  locationUpdatePayload: {
+    LocationUpdatePayload : ' locationUpdatePayload.LocationUpdatePayload',
   },
   response: {
     Response: 'response.Response',
   },
-  gameNotification: {
-    LocationUpdate: 'gameNotification.LocationUpdate',
-    Start: 'gameNotification.Start',
+  locationUpdate: {
+    LocationUpdate: ' locationUpdate.LocationUpdate',
   },
 };
