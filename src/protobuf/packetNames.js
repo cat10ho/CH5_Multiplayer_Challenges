@@ -7,12 +7,12 @@ export const packetNames = {
     InitialPacket: 'initial.InitialPacket',
   },
   locationUpdatePayload: {
-    LocationUpdatePayload : ' locationUpdatePayload.LocationUpdatePayload',
+    LocationUpdatePayload : 'locationUpdatePayload.LocationUpdatePayload',
   },
   response: {
     Response: 'response.Response',
   },
   locationUpdate: {
-    LocationUpdate: ' locationUpdate.LocationUpdate',
+    LocationUpdate: 'locationUpdate.LocationUpdate',
   },
 };
