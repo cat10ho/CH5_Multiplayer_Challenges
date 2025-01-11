@@ -15,7 +15,7 @@ const initialHandler = async ({ socket, userId, payload }) => {
       deviceId = uuidv4();
     } 
 
-    addUser(deviceId, socket);
+    addUser(deviceId, socket); //캐릭터 아이디(종류) 도 추가해야 겠다야.
     const user = getUserById(deviceId);
 
     //찾아서 없으면 만들고 있으면 그냥 가져오기.
